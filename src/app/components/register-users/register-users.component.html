@@ -1,0 +1,83 @@
+<div class="title">
+    <h1>Register User</h1>
+</div>
+<div class="container">
+    <mat-card class="card">
+        <mat-card-subtitle>
+            User Data
+        </mat-card-subtitle>
+        <form [formGroup]="form" (ngSubmit)="saveUser()">
+            <input type="password" *ngIf="isEditForm"  formControlName="password" matInput autocomplete="off" type="hidden" >
+            <mat-grid-list cols="2" rowHeight="100px">
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input formControlName="id" type="hidden">
+                        <input formControlName="firstName" matInput autocomplete="off">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Second Name</mat-label>
+                        <input formControlName="secondName" matInput autocomplete="off" >
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last First Name</mat-label>
+                        <input formControlName="lastFirstName" matInput autocomplete="off" >
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last Second Name</mat-label>
+                        <input  formControlName="lastSecondName" matInput autocomplete="off" >
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nick Name</mat-label>
+                        <input formControlName="nickName" matInput autocomplete="off" >
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="email" formControlName="email" matInput autocomplete="off" >
+                        <div *ngIf="form.get('email') && form.get('email')!.hasError('emailTaken')">Email is already taken.</div>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Phone Number</mat-label>
+                        <input formControlName="phoneNumber" matInput autocomplete="off" >
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>BirthDay</mat-label>
+                        <input type="date" formControlName="birthDay" matInput autocomplete="off" >
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile *ngIf="!isEditForm">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password"  formControlName="password" matInput autocomplete="off" >
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile *ngIf="!isEditForm">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="password" formControlName="confirmPassword" matInput autocomplete="off" >
+                        <div *ngIf="isInvalidPassword" class="text-danger ">El password no se ha confirmado correctamente.</div>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2">
+                    <button [disabled]="form.invalid" type="submit" mat-raised-button color="primary" class="buttonadd">Save</button>
+                    <button routerLink="/listUsers" mat-raised-button color="basic" class="buttonadd">Volver</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+
+</div>

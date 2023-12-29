@@ -1,0 +1,22 @@
+
+
+
+
+.tableData{
+    align-self: center;
+}
+
+.delete { 
+    cursor: pointer;
+    color:rgb(227, 13, 56)
+}
+
+.edit { 
+    cursor: pointer;
+    color:rgb(1, 40, 17)
+}
+
+.buttonadd{
+    font-size: 10px;
+    line-height: 5px;
+}

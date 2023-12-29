@@ -1,0 +1,14 @@
+.title{
+    text-align: center;    
+    background-color:rgb(43, 58, 53);
+    color: azure;
+    height: 10px;
+    width: 100%;
+    padding: 50px 50px;
+    font-size: large;
+}
+
+.container{
+    margin: 5px 150px 0 150px;
+    text-align: center;
+}

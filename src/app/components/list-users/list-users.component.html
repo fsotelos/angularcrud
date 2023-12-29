@@ -1,0 +1,80 @@
+<div class="title"><h1>List Users</h1></div>
+<div class="container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 tableData">
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- First Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <!-- Second Name Column -->
+    <ng-container matColumnDef="secondName">
+      <th mat-header-cell *matHeaderCellDef> Second Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.secondName || 'N/A'}} </td>
+    </ng-container>
+
+    <!-- Last First Name Column -->
+    <ng-container matColumnDef="lastFirstName">
+      <th mat-header-cell *matHeaderCellDef> Last First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastFirstName}} </td>
+    </ng-container>
+
+    <!-- Last Second Name Column -->
+    <ng-container matColumnDef="lastSecondName">
+      <th mat-header-cell *matHeaderCellDef> Last Second Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastSecondName || 'N/A'}} </td>
+    </ng-container>
+
+    <!-- BirthDayDate Column -->
+    <ng-container matColumnDef="birthDayDate">
+      <th mat-header-cell *matHeaderCellDef> BirthDay Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.birthDayDate | date}} </td>
+    </ng-container>
+
+    <!-- NickName Column -->
+    <ng-container matColumnDef="nickName">
+      <th mat-header-cell *matHeaderCellDef> NickName </th>
+      <td mat-cell *matCellDef="let element"> {{element.nickName}} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Gender Column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef> Gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+    </ng-container>
+
+
+
+    <!-- Phone Number Column -->
+    <ng-container matColumnDef="phoneNumber">
+      <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> 
+        <button routerLink="/addUser" mat-raised-button color="primary" class="buttonadd">Add</button>
+      </th>
+      <td mat-cell *matCellDef="let element"> 
+          <mat-icon routerLink="/editUser/{{element.id}}" matTooltip="Edit" class="edit">edit</mat-icon>
+          <mat-icon matTooltip="Delete" (click)="deleteUser(element.id)" class="delete">delete</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
